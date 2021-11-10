@@ -8,3 +8,7 @@ This hackathon intends to be a hiring event. We will give a problem statement ba
 https://www.techgig.com/hackathon/mercedes-benz-hiring-challenge
 
 ## How to run
+Use the `Makefile` to run it
+```sh
+make all
+``
