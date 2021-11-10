@@ -20,6 +20,9 @@ func PlanRoute(distance, currentCharge int, stationModel *model.Stations) []mode
 
 		// Stop at current station and recharge
 		currentCharge += station.Limit
+		if currentCharge > 100 {
+			currentCharge = 100
+		}
 		routeStations = append(routeStations, station)
 		lastDistanceWhenCharged = station.Dist
 		distance -= station.Dist

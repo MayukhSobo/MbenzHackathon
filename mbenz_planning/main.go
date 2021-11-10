@@ -31,28 +31,3 @@ func main() {
 		utils.StartServerWithGracefulShutdown(app)
 	}
 }
-
-
-//func main() {
-//	a := fiber.AcquireAgent()
-//	defer fiber.ReleaseAgent(a)
-//	req := a.Request()
-//
-//	req.Header.SetMethod(fiber.MethodGet)
-//	req.SetRequestURI("http://localhost:9000/api/internal/v1/status/W1K2062161F0046")
-//	req.URI().SetQueryString("source=home&destination=Power Plant")
-//	req.URI().QueryArgs().Add("source", "home")
-//	req.URI().QueryArgs().Add("destination", "Power Plant")
-//
-//	if err := a.Parse(); err != nil {
-//		panic(err)
-//	}
-//	httpCode, body, err := a.Bytes()
-//	if err != nil {
-//		panic(err)
-//	}
-//	if httpCode != fiber.StatusOK {
-//		panic(fmt.Errorf("request was not successful. ErrorCode %d", httpCode))
-//	}
-//	fmt.Println(string(body))
-//}
