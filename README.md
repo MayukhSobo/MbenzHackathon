@@ -11,4 +11,3 @@ https://www.techgig.com/hackathon/mercedes-benz-hiring-challenge
 Use the `Makefile` to run it
 ```sh
 make all
-``
