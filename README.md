@@ -14,7 +14,7 @@ $ make all
 ```
 
 # Possible Errors
-We might see some possbile errors in terms of cross container netwoking. In such cases, we need to invisually build the services. So execute the following commands
+We might see some possbile errors in terms of cross container netwoking. In such cases, we need to indivisually build the services. So execute the following commands
 ```sh
 $ docker network create mbenz_default 
 $ cd mbenz_poc
