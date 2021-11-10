@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+  routing:
+    image: mbenz-poc
+    container_name: mbenzPoc
+    ports:
+      - "9000:9000"
+    # networks: 
+    #   - maccaptionNet
+    restart: always
+  poc:
+    image: mbenz-routing
+    container_name: mbenzRouting
+    ports:
+      - "9999:9999"
+    # networks: 
+    # - maccaptionNet
+    depends_on:
+    - "mbenzPoc"
+    restart: always

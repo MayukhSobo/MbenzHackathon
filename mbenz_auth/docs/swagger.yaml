@@ -1,0 +1,146 @@
+basePath: /api/v1
+definitions:
+  httputil.HTTPError:
+    properties:
+      code:
+        example: 400
+        type: integer
+      message:
+        example: status bad request
+        type: string
+    type: object
+  models.JsonResponse:
+    properties:
+      error:
+        type: string
+      msg:
+        type: string
+      tokens:
+        $ref: '#/definitions/utils.Tokens'
+    type: object
+  models.SignIN:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  models.SignUP:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+      user_role:
+        type: string
+    required:
+    - email
+    - password
+    - user_role
+    type: object
+  utils.Tokens:
+    properties:
+      access:
+        type: string
+      refresh:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: mayukh2012@hotmail.com
+    name: Mayukh Sarkar
+  description: This is the authentication API for mercedes-benz
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Mercedes-Benz Auth API
+  version: "1.0"
+paths:
+  /user/sign/in:
+    post:
+      consumes:
+      - application/json
+      description: Auth user and return access and refresh token.
+      parameters:
+      - description: The input user info
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.SignIN'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.JsonResponse'
+        "400":
+          description: 400", "fwgwg"}
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "401":
+          description: 400", "fwgwg"}
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "404":
+          description: 400", "fwgwg"}
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: 400", "fwgwg"}
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: auth user and return access and refresh token
+      tags:
+      - User
+  /user/sign/out:
+    post:
+      consumes:
+      - application/json
+      description: De-authorize user and delete refresh token from Redis.
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: ok
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: de-authorize user and delete refresh token from Redis
+      tags:
+      - User
+  /user/sign/up:
+    post:
+      consumes:
+      - application/json
+      description: Create a new user.
+      parameters:
+      - description: The input user info
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.SignUP'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: creates a new user
+      tags:
+      - User
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
