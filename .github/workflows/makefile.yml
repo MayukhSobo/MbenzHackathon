@@ -1,0 +1,24 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Build POC service 
+      run: make docker.poc.build
+      
+    - name: Build Routing service
+      run: make docker.routing.build
+      
+    - name: Run Application
+      run: make run
