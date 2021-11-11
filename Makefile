@@ -10,6 +10,11 @@ run:
 stop:
 	docker-compose stop
 
+clean:
+	docker rm -f mbenzPoc
+	docker rm -f mbenz-route
+
 all: docker.routing.build docker.poc.build
 	docker-compose up -d
+
 
