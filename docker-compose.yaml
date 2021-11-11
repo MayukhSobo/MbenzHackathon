@@ -17,5 +17,5 @@ services:
 #    networks: 
 #    - mbenz_default
     depends_on:
-    - "mbenzPoc"
+    - "poc"
     restart: always
