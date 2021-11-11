@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  routing:
+  poc:
     image: mbenz-poc
     container_name: mbenzPoc
     ports:
@@ -9,7 +9,7 @@ services:
 #    networks: 
 #      - mbenz_default
     restart: always
-  poc:
+  routing:
     image: mbenz-routing 
     container_name: mbenz-route
     ports:
